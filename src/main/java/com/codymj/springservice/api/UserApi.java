@@ -22,7 +22,7 @@ public class UserApi {
         this.userService = userService;
     }
 
-    @GetMapping(value= {"", "/"}, produces=MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value={"", "/"}, produces=MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<UserDto>> getUsers() {
         return new ResponseEntity<>(userService.getUsers(), HttpStatus.OK);
     }
