@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: spring-service
+  cloud:
+    consul:
+      discovery:
+        hostname: 172.17.0.3
+        port: 8500
+      config:
+        enabled: true
+        prefixes: config
+        data-key: data
+        profile-separator: '::'
+        format: yaml
+        watch:
+          enabled: true
+          delay: 15000

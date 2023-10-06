@@ -24,6 +24,10 @@ public class UserApi {
 
     @GetMapping(value={"", "/"}, produces=MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<UserDto>> getUsers() {
-        return new ResponseEntity<>(userService.getUsers(), HttpStatus.OK);
+        List<UserDto> users = userService.getUsers();
+        if (users==null || users.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(users, HttpStatus.OK);
     }
 }
