@@ -4,6 +4,6 @@ import com.codymj.springservice.dto.UserDto;
 
 import java.util.List;
 
-public interface UserService {
+public interface UserSvc {
     List<UserDto> getUsers();
 }

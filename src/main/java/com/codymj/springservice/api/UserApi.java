@@ -1,7 +1,7 @@
 package com.codymj.springservice.api;
 
 import com.codymj.springservice.dto.UserDto;
-import com.codymj.springservice.service.UserService;
+import com.codymj.springservice.service.UserSvc;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -15,16 +15,16 @@ import java.util.List;
 @RestController
 @RequestMapping("/users")
 public class UserApi {
-    private final UserService userService;
+    private final UserSvc userSvc;
 
     @Autowired
-    public UserApi(UserService userService) {
-        this.userService = userService;
+    public UserApi(UserSvc userSvc) {
+        this.userSvc = userSvc;
     }
 
     @GetMapping(value={"", "/"}, produces=MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<UserDto>> getUsers() {
-        List<UserDto> users = userService.getUsers();
+        List<UserDto> users = userSvc.getUsers();
         if (users==null || users.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }

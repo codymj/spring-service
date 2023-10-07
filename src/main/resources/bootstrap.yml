@@ -4,7 +4,7 @@ spring:
   cloud:
     consul:
       discovery:
-        hostname: 172.17.0.3
+        hostname: localhost
         port: 8500
       config:
         enabled: true
